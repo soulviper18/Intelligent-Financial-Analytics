@@ -2,6 +2,7 @@ package com.example.demo.exception.handler;
 
 import java.time.LocalDateTime;
 
+@Deprecated(since = "1.0.0", forRemoval = true)
 public class ApiError {
 
     private int status;
@@ -18,7 +19,6 @@ public class ApiError {
         this.timestamp = LocalDateTime.now();
     }
 
-    // Getters
     public int getStatus() {
         return status;
     }
