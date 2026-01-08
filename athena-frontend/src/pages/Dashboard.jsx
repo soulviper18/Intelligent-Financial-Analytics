@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ErrorBanner from "../components/common/ErrorBanner";
+import ErrorBanner from "../components/ErrorBanner";
 
 export default function Dashboard() {
   const [form, setForm] = useState({
