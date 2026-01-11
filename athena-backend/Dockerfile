@@ -5,6 +5,9 @@ WORKDIR /app
 
 COPY . .
 
+RUN chmod +x gradlew
+
+
 RUN ./gradlew clean bootJar -x test
 
 # -------- STAGE 2: Run --------
