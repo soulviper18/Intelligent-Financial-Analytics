@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/athena_db
-    username: postgres
-    password: "@M10viper"
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
   jpa:
     hibernate:
@@ -11,14 +11,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-logging:
-  level:
-    org.springframework.security: DEBUG
-    com.example.demo.security: DEBUG
-
-jwt:
-  secret: athena_super_secure_jwt_secret_key_256_bits_long_enough
-  access-token-expiry: 900000        # 15 min
-  refresh-token-expiry: 604800000    # 7 days
-
