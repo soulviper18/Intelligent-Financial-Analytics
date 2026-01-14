@@ -1,13 +1,11 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://dpg-d5hqo2t6ubrc7386nfq0-a.oregon-postgres.render.com:5432/athena_qt0s?sslmode=require
+    username: athena
+    password: uup7hXsyl8ADx39ftfSe3yqOyv5Uat7V
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true

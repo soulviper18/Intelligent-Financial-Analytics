@@ -20,7 +20,12 @@ public class CorsConfig {
                             "https://intelligent-financial-analytics.vercel.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders(
+                            "Authorization",
+                            "Content-Type",
+                            "Accept"
+                        )
+                        .allowCredentials(true);
             }
         };
     }
