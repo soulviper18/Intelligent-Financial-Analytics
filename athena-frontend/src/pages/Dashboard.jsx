@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ErrorBanner from "../components/ErrorBanner";
+import api from "../api/client";
 
 export default function Dashboard() {
   const [form, setForm] = useState({
@@ -23,23 +24,15 @@ export default function Dashboard() {
     setResult(null);
 
     try {
-      const res = await fetch("http://localhost:8080/transactions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: Number(form.userId),
-          amount: Number(form.amount),
-          currency: form.currency,
-        }),
+      const res = await api.post("/transactions", {
+        userId: Number(form.userId),
+        amount: Number(form.amount),
+        currency: form.currency,
       });
 
-      if (!res.ok) {
-        throw new Error("Backend error");
-      }
-
-      const data = await res.json();
-      setResult(data);
+      setResult(res.data);
     } catch (err) {
+      console.error(err);
       setError("Transaction failed. Backend not reachable.");
     } finally {
       setLoading(false);
@@ -143,3 +136,4 @@ export default function Dashboard() {
     </section>
   );
 }
+
